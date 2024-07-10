@@ -1,6 +1,6 @@
-podman network create sample-go-net || true
+docker network create sample-go-net || true
 
-podman run \
+docker run \
   --name app-datastore \
   --net sample-go-net \
   --restart=always \

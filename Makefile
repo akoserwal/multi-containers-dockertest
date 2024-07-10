@@ -13,11 +13,13 @@ build:
 test:
 	@echo ""
 	@echo "Running tests."
-	go test ./... -count=1
+	go test ./... -count=1 -v
 
 postgres_up:
 	./start-postgresql.sh
 
+postgres_down:
+	./teardown.sh
 
 export DB_CONN_URL=postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}?sslmode=disable
 run:

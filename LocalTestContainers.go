@@ -36,7 +36,7 @@ func CreateLocalTestContainer() (*LocalTestContainer, error) {
 
 	// Create Postgres container
 	dbresource := createPostgresDB(err, pool, network)
-	log.Println(dbresource.Container.Name)
+	log.Printf("Postgresql db container: %s", dbresource.Container.Name)
 
 	port := "5432"
 	name := strings.Trim(dbresource.Container.Name, "/")
@@ -57,12 +57,14 @@ func CreateLocalTestContainer() (*LocalTestContainer, error) {
 	// Create migration container
 	dbmigrate := createMigration(err, pool, network, databaseUrl, tempDir, dbresource)
 
-	log.Println(dbmigrate.Container.Name)
+	log.Printf("Migration container: %s", dbmigrate.Container.Name)
 
 	// Create application container
 	appresource := createAppContainer(err, pool, databaseUrl, network)
 
 	appport := appresource.GetPort("8000/tcp")
+
+	log.Printf("Items API container %s", appresource.Container.Name)
 
 	return &LocalTestContainer{
 		appName:            appresource.Container.Name,
