@@ -1,10 +1,6 @@
-# Creating Multiple Test Containers with ory/dockertest
+# Creating Multiple Test Containers with ory/dockertest in Go
 
-Project show-case a simple items API written in golang.
 
- GET    /health                  
- GET    /items                  
- GET    /items/:id              
- POST   /items                 
- PUT    /items/:id                
- DELETE /items/:id 
+Follow the Tutorial: [Creating Multiple Test Containers with ory/dockertest in Go](https://akoserwal.medium.com/creating-multiple-test-containers-with-ory-dockertest-in-go-5b8311614e7b)
+
+
